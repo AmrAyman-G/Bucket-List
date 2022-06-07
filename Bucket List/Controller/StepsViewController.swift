@@ -7,29 +7,35 @@
 
 import UIKit
 import CoreData
+import ChameleonFramework
 
 class StepsViewController: UIViewController {
 
+    @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var tabelView: UITableView!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var stepsArray = [Steps]()
     var selectedItem : List? {
         didSet{
-            load()
+            loadsteps()
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navBar.title = selectedItem?.name
         let nib = UINib(nibName: "StepCell", bundle: nil)
         tabelView.register(nib, forCellReuseIdentifier: "stepsCell")
+        loadsteps()
+        print(stepsArray.count)
 
         
     }
     
+    
 
     @IBAction func addStep(_ sender: UIBarButtonItem) {
-        
+        alert(titel: "add step to \(String(describing: selectedItem?.name))", message: nil, perferredStayle: .alert, buttonTitel: "add", actionStayle: .default)
     }
     
 }
@@ -42,7 +48,9 @@ extension StepsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "stepsCell", for: indexPath) as! StepCell
-        
+        cell.stepNumberLabel.text = "\(indexPath.row + 1)"
+        cell.stepImage.tintColor = UIColor(hexString: (selectedItem?.color)!)
+        cell.stepNameLabel.text = stepsArray[indexPath.row].step
         return cell
     }
     
@@ -62,8 +70,9 @@ extension StepsViewController {
             let newStep = Steps(context: self.context)
             newStep.step = textField.text
             newStep.time = Date.now
+            newStep.list = self.selectedItem
             self.stepsArray.append(newStep)
-            self.save()
+            self.saveSteps()
         }
         alert.addTextField { field in
             textField = field
@@ -74,21 +83,22 @@ extension StepsViewController {
     }
     
     
-    func save(){
+    func saveSteps(){
         do{
             try context.save()
-            load()
+            loadsteps()
         }catch{
             
         }
     }
     
-    func load(){
+    func loadsteps(){
+        
         let request = Steps.fetchRequest() as! NSFetchRequest
-        let sort  = NSSortDescriptor(key: "time", ascending: false)
-        let predacit = NSPredicate(format: "list.name MATCHES %@", selectedItem!.name!)
+        let sort  = NSSortDescriptor(key: "time", ascending: true)
+        let Predicate = NSPredicate(format: "list.name MATCHES %@", selectedItem!.name!)
         request.sortDescriptors = [sort]
-        request.predicate = predacit
+        request.predicate = Predicate
         do{
             self.stepsArray =   try context.fetch(request)
             
@@ -96,7 +106,7 @@ extension StepsViewController {
                 self.tabelView.reloadData()
             }
         }catch{
-            
+            print(error.localizedDescription)
         }
     }
 

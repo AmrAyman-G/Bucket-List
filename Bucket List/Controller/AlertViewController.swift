@@ -8,6 +8,8 @@
 import UIKit
 
 
+
+
 class AlertViewController: UIViewController {
     
     
@@ -20,6 +22,9 @@ class AlertViewController: UIViewController {
     @IBOutlet weak var itemTextField: UITextField!
     @IBOutlet weak var AlertView: UIView!
     let fC = Func()
+    var text:String?
+    var addTapped : ((_ text:String?)-> Void)?
+    
     
     
     override func viewDidLoad() {
@@ -39,21 +44,28 @@ class AlertViewController: UIViewController {
     @IBAction func addButton(_ sender: UIButton) {
         
         // Const For The Text Field
+        
         let currentText = itemTextField.text ?? ""
-        
-        
+        let set = CharacterSet(charactersIn: currentText)
+//        let freedSpaceString = currentText.filter {!$0.isWhitespace}
+        let freedSpaceString = currentText.trimmingCharacters(in: .whitespaces)
+
         // Valedation Statment
-        if itemTextField.text == ""{
-            
+        if itemTextField.text == "" || CharacterSet.whitespaces.isSuperset(of: set){
+            itemTextField.text = ""
             fC.textFieldValidation(textField: itemTextField, placeholder: "Please Enter Item Name!", color: UIColor.red.cgColor)
             
-        }else if currentText.count < 4{
+        }else if currentText.count < 3{
             
             itemTextField.text = ""
-            fC.textFieldValidation(textField: itemTextField, placeholder: "Min Number of Charecter is 4", color: UIColor.red.cgColor)
+            fC.textFieldValidation(textField: itemTextField, placeholder: "Min Number of Charecter is 3", color: UIColor.red.cgColor)
             
         }else{
-            print(currentText)
+            print("Pass point 1")
+            addTapped?(freedSpaceString)
+            print("Pass point 2")
+            dismiss(animated: true, completion: nil)
+            print("Pass point 3")
         }
         
         
@@ -88,6 +100,8 @@ extension AlertViewController: UITextFieldDelegate{
    
         fC.textFieldValidation(textField: itemTextField, color: UIColor(red: 60/255, green: 212/255, blue: 248/255, alpha: 1).cgColor)
     }
+    
+   
 }
 
 
@@ -95,6 +109,7 @@ extension AlertViewController: UITextFieldDelegate{
 //MARK: - Extension  For Other Function -
 
 extension AlertViewController{
+    
     
     func firstToRun(){
         
@@ -117,5 +132,11 @@ extension AlertViewController{
     }
     
     
+    func invalidTextField(_ value: String) -> String?
+        {
+           
+           
+            return nil
+        }
     
 }

@@ -14,6 +14,8 @@
 		C50DE9582847D88B00BA6F9F /* Bucket_List.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C50DE9562847D88B00BA6F9F /* Bucket_List.xcdatamodeld */; };
 		C50DE95A2847D88E00BA6F9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C50DE9592847D88E00BA6F9F /* Assets.xcassets */; };
 		C50DE95D2847D88E00BA6F9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C50DE95B2847D88E00BA6F9F /* LaunchScreen.storyboard */; };
+		C510E0B5284E63080032E33E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C510E0B3284E63080032E33E /* CollectionViewCell.swift */; };
+		C510E0B6284E63080032E33E /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C510E0B4284E63080032E33E /* CollectionViewCell.xib */; };
 		C5ABE9192848F15500C7EAE9 /* StepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ABE9182848F15500C7EAE9 /* StepsViewController.swift */; };
 		C5ABE9282848F70F00C7EAE9 /* Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ABE9272848F70F00C7EAE9 /* Func.swift */; };
 		C5D4B7E328490934001BEC85 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D4B7E128490934001BEC85 /* ListCell.swift */; };
@@ -24,6 +26,8 @@
 		C5D4B7EE28492F4D001BEC85 /* List+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D4B7EA28492F4C001BEC85 /* List+CoreDataClass copy.swift */; };
 		C5D4B7EF28492F4D001BEC85 /* List+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D4B7EB28492F4C001BEC85 /* List+CoreDataProperties copy.swift */; };
 		C5D4B7F028492F4D001BEC85 /* Steps+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D4B7EC28492F4D001BEC85 /* Steps+CoreDataClass copy.swift */; };
+		C5DD84B5284EDA2E00108C84 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DD84B3284EDA2D00108C84 /* ProfileViewController.swift */; };
+		C5DD84B6284EDA2E00108C84 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5DD84B4284EDA2E00108C84 /* ProfileViewController.xib */; };
 		C5E0F14E284A3DCE0042DEF0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E0F14D284A3DCE0042DEF0 /* Alert.swift */; };
 		C5E0F152284A4EFB0042DEF0 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E0F151284A4EFB0042DEF0 /* AlertViewController.swift */; };
 		C5E0F154284A51E30042DEF0 /* AlertView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5E0F153284A51E30042DEF0 /* AlertView.storyboard */; };
@@ -43,6 +47,8 @@
 		C50DE9592847D88E00BA6F9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C50DE95C2847D88E00BA6F9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C50DE95E2847D88E00BA6F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C510E0B3284E63080032E33E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		C510E0B4284E63080032E33E /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		C5ABE9182848F15500C7EAE9 /* StepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsViewController.swift; sourceTree = "<group>"; };
 		C5ABE9272848F70F00C7EAE9 /* Func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Func.swift; sourceTree = "<group>"; };
 		C5D4B7E128490934001BEC85 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
@@ -53,6 +59,8 @@
 		C5D4B7EA28492F4C001BEC85 /* List+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "List+CoreDataClass copy.swift"; sourceTree = "<group>"; };
 		C5D4B7EB28492F4C001BEC85 /* List+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "List+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
 		C5D4B7EC28492F4D001BEC85 /* Steps+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Steps+CoreDataClass copy.swift"; sourceTree = "<group>"; };
+		C5DD84B3284EDA2D00108C84 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C5DD84B4284EDA2E00108C84 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		C5E0F14D284A3DCE0042DEF0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C5E0F151284A4EFB0042DEF0 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		C5E0F153284A51E30042DEF0 /* AlertView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertView.storyboard; sourceTree = "<group>"; };
@@ -142,6 +150,8 @@
 		C5ABE9162848EB2F00C7EAE9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C5DD84B3284EDA2D00108C84 /* ProfileViewController.swift */,
+				C5DD84B4284EDA2E00108C84 /* ProfileViewController.xib */,
 				C5ABE91A2848F21500C7EAE9 /* Cells */,
 				C50DE9512847D88B00BA6F9F /* ListViewController.swift */,
 				C5ABE9182848F15500C7EAE9 /* StepsViewController.swift */,
@@ -166,6 +176,8 @@
 				C5D4B7E228490934001BEC85 /* ListCell.xib */,
 				C5D4B7E52849096F001BEC85 /* StepCell.swift */,
 				C5D4B7E62849096F001BEC85 /* StepCell.xib */,
+				C510E0B3284E63080032E33E /* CollectionViewCell.swift */,
+				C510E0B4284E63080032E33E /* CollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -242,6 +254,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5D4B7E82849096F001BEC85 /* StepCell.xib in Resources */,
+				C510E0B6284E63080032E33E /* CollectionViewCell.xib in Resources */,
+				C5DD84B6284EDA2E00108C84 /* ProfileViewController.xib in Resources */,
 				C5E0F154284A51E30042DEF0 /* AlertView.storyboard in Resources */,
 				C50DE95D2847D88E00BA6F9F /* LaunchScreen.storyboard in Resources */,
 				C5D4B7E428490934001BEC85 /* ListCell.xib in Resources */,
@@ -304,6 +318,8 @@
 				C5D4B7EF28492F4D001BEC85 /* List+CoreDataProperties copy.swift in Sources */,
 				C5ABE9192848F15500C7EAE9 /* StepsViewController.swift in Sources */,
 				C50DE9522847D88B00BA6F9F /* ListViewController.swift in Sources */,
+				C510E0B5284E63080032E33E /* CollectionViewCell.swift in Sources */,
+				C5DD84B5284EDA2E00108C84 /* ProfileViewController.swift in Sources */,
 				C5D4B7EE28492F4D001BEC85 /* List+CoreDataClass copy.swift in Sources */,
 				C5E0F14E284A3DCE0042DEF0 /* Alert.swift in Sources */,
 				C50DE9582847D88B00BA6F9F /* Bucket_List.xcdatamodeld in Sources */,

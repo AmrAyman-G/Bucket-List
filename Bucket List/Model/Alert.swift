@@ -8,9 +8,11 @@
 import UIKit
 
 class Alert {
-    func alert() -> AlertViewController {
+    func alert(complition:@escaping (_ text:String?)->Void) -> AlertViewController {
         let storyBoard = UIStoryboard(name: "AlertView", bundle: .main)
         let alertVC = storyBoard.instantiateViewController(withIdentifier: "AlertVC") as! AlertViewController
+        print("pass point 0")
+        alertVC.addTapped = complition
         return alertVC
     }
 }

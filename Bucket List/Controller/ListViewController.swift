@@ -8,48 +8,57 @@
 import UIKit
 import CoreData
 import ChameleonFramework
+import SideMenu
 
 class ListViewController: UIViewController{
    
     
     
     
-    
-    @IBOutlet weak var shadowView: UIView!
+
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tabelView: UITableView!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let  fC = Func()
     let alert = Alert()
-    let alertVC = AlertViewController()
     var listArray = [List]()
+    var collectionArray = ["Main","Done"]
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        shadowView.layer.isHidden = true
-//        shadowView.layer.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3).cgColor
-        let nib = UINib(nibName: "ListCell", bundle: nil)
-        tabelView.register(nib, forCellReuseIdentifier: "listCell")
-        load()
-        // Do any additional setup after loading the view.
+      
+       firstToLoad()
+   
     }
     
   
-    override func  viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        navigationController?.setNavigationBarHidden(false, animated: false)
-//        shadowView.layer.isHidden = true
-    }
     
+  
     
     
     @IBAction func addList(_ sender: UIBarButtonItem) {
-//        alert(titel: "Bucket List", message: nil, perferredStayle: .alert, buttonTitel: "Add", actionStayle: .default)
-//        navigationController?.setNavigationBarHidden(true, animated: false)
-//        shadowView.layer.isHidden = true
-        let alertView = alert.alert()
+
+        let alertView = alert.alert { [weak self]  text in
+            guard let item = text else {fatalError()}
+            guard let strongSelf = self else {fatalError()}
+            let newInList = List(context: strongSelf.context)
+            newInList.name = item
+            newInList.time = Date.now
+            newInList.color = UIColor.randomFlat().hexValue()
+            strongSelf.listArray.append(newInList)
+            strongSelf.save()
+        }
         present(alertView, animated: true)
         
+    }
+    @IBAction func slideLeft(_ sender: UIBarButtonItem) {
+      let  profileViewController = ProfileViewController()
+        let menu = SideMenuNavigationController(rootViewController: profileViewController)
+        menu.leftSide = true
+       
+        present(menu, animated: true, completion: nil)
     }
 }
 
@@ -61,6 +70,9 @@ class ListViewController: UIViewController{
 
 extension ListViewController :  UITableViewDelegate, UITableViewDataSource {
     
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 2
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         listArray.count
@@ -69,32 +81,40 @@ extension ListViewController :  UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as! ListCell
         if let name = listArray[indexPath.row].name ,let color = listArray[indexPath.row].color {
-            cell.cellView.backgroundColor = UIColor(hexString: color)
-            cell.itemLabel.textColor = ContrastColorOf(UIColor(hexString: color)!, returnFlat: true)
+            cell.imageLabel.tintColor = UIColor(hexString: color)
+            cell.itemCountLabel.text = "\(indexPath.row + 1)"
+//           cell.itemLabel.textColor = ContrastColorOf(UIColor(hexString: color)!, returnFlat: true)
             cell.itemLabel.text = name
+            
+          
+            
         }
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "stepSegua", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let sVC = segue.destination as! StepsViewController
+        
         if let indexPath = tabelView.indexPathForSelectedRow {
+            print(indexPath)
             sVC.selectedItem = listArray[indexPath.row]
+        }else{
+            print("not working the index is empty")
         }
     }
     
     func tableView(_ tableView: UITableView,
                    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal,
-                                        title: "Archive") { [weak self] (action, view, completionHandler) in
+                                        title: "Done") { [weak self] (action, view, completionHandler) in
             guard let strongSelf = self else {return}
-            strongSelf.atchiveHandeler()
+            strongSelf.itemDone()
             completionHandler(true)
         }
         action.backgroundColor = .systemBlue
@@ -111,7 +131,7 @@ extension ListViewController :  UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    private func atchiveHandeler() {
+    private func itemDone() {
         print("Marked as favourite")
     }
 }
@@ -121,29 +141,44 @@ extension ListViewController :  UITableViewDelegate, UITableViewDataSource {
 
 
 
+extension ListViewController : UICollectionViewDelegate, UICollectionViewDataSource{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return collectionArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+        cell.collectionLabel.text = collectionArray[indexPath.row]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+     let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0.0, y: cell.ViewNav.frame.height - 5, width: cell.ViewNav.frame.width, height: 1.0)
+        bottomLine.backgroundColor = UIColor.black.cgColor
+        cell.ViewNav.layer.addSublayer(bottomLine)
+    }
+    
+    
+}
+
+
 
 
 extension ListViewController {
     
-    func alert( titel:String, message:String?, perferredStayle: UIAlertController.Style , buttonTitel:String? , actionStayle: UIAlertAction.Style){
-        var textField = UITextField()
-        let alert = UIAlertController(title: titel, message: message, preferredStyle: perferredStayle)
-        let action = UIAlertAction(title: buttonTitel, style: actionStayle) { action in
-            let newInList = List(context: self.context)
-            newInList.name = textField.text
-            newInList.time = Date.now
-            newInList.color = UIColor.randomFlat().hexValue()
-            self.listArray.append(newInList)
-            self.save()
-        }
-        alert.addTextField { field in
-            textField = field
-            textField.placeholder = "Add what you wanna do"
-        }
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+    func firstToLoad(){
+        
+        
+        let nib = UINib(nibName: "ListCell", bundle: nil)
+        tabelView.register(nib, forCellReuseIdentifier: "listCell")
+        let collectionNib = UINib(nibName: "CollectionViewCell", bundle: nil)
+        collectionView.register(collectionNib, forCellWithReuseIdentifier: "CollectionViewCell")
+        load()
+//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     }
-    
     
     func save(){
         do{
@@ -169,5 +204,8 @@ extension ListViewController {
         }
     }
 }
+
+
+
 
 

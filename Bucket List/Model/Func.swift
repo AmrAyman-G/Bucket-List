@@ -27,4 +27,11 @@ struct Func{
         textField.layer.addSublayer(bottomLine)
         textField.placeholder = placeholder
     }
+    
+    func ViewUnderLine(_ view:UIView){
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0.0, y: view.frame.height - 5, width: view.frame.width, height: 1.0)
+        bottomLine.backgroundColor = UIColor.black.cgColor
+        view.layer.addSublayer(bottomLine)
+    }
 }

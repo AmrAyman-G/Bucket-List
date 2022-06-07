@@ -9,6 +9,9 @@ import UIKit
 
 class StepCell: UITableViewCell {
 
+    @IBOutlet weak var stepImage: UIImageView!
+    @IBOutlet weak var stepNumberLabel: UILabel!
+    @IBOutlet weak var stepNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
