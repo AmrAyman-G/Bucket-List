@@ -11,8 +11,16 @@ class Alert {
     func alert(complition:@escaping (_ text:String?)->Void) -> AlertViewController {
         let storyBoard = UIStoryboard(name: "AlertView", bundle: .main)
         let alertVC = storyBoard.instantiateViewController(withIdentifier: "AlertVC") as! AlertViewController
-        print("pass point 0")
         alertVC.addTapped = complition
+        return alertVC
+    }
+}
+
+class SignIn{
+    func Sign() -> RegistrationView {
+        let storyBoard = UIStoryboard(name: "RegistrationView", bundle: nil)
+        let alertVC = storyBoard.instantiateViewController(withIdentifier: "RegView") as! RegistrationView
+
         return alertVC
     }
 }

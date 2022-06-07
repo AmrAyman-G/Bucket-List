@@ -17,20 +17,30 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucH-hW-6zn">
-                        <rect key="frame" x="89.5" y="73" width="180" height="40"/>
+                        <rect key="frame" x="89.5" y="48" width="180" height="90"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUr-ZN-Wl4">
-                                <rect key="frame" x="69" y="9.5" width="42" height="21"/>
+                                <rect key="frame" x="69" y="27.5" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ExJ-gC-LQk">
+                                <rect key="frame" x="15" y="73" width="150" height="4"/>
+                                <color key="tintColor" red="0.63469010910000001" green="0.2105045915" blue="0.74741286039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="acj-Re-fzn"/>
+                                    <constraint firstAttribute="height" constant="4" id="ese-mP-h0C"/>
+                                </constraints>
+                            </progressView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.050291627649999997" green="0.096069835130000003" blue="0.33650368450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="180" id="3bO-eq-5fa"/>
-                            <constraint firstItem="iUr-ZN-Wl4" firstAttribute="centerY" secondItem="ucH-hW-6zn" secondAttribute="centerY" id="5EL-SS-giL"/>
-                            <constraint firstAttribute="height" constant="40" id="Wq3-5H-KTE"/>
+                            <constraint firstItem="iUr-ZN-Wl4" firstAttribute="centerY" secondItem="ucH-hW-6zn" secondAttribute="centerY" constant="-7" id="5EL-SS-giL"/>
+                            <constraint firstItem="ExJ-gC-LQk" firstAttribute="centerX" secondItem="ucH-hW-6zn" secondAttribute="centerX" id="JDM-xI-Pwg"/>
+                            <constraint firstAttribute="bottom" secondItem="ExJ-gC-LQk" secondAttribute="bottom" constant="13" id="K61-uW-SJN"/>
+                            <constraint firstAttribute="height" constant="90" id="Wq3-5H-KTE"/>
                             <constraint firstItem="iUr-ZN-Wl4" firstAttribute="centerX" secondItem="ucH-hW-6zn" secondAttribute="centerX" id="fXf-dH-5XI"/>
                         </constraints>
                     </view>

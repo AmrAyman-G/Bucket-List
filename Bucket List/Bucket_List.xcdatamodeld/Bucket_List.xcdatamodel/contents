@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20G527" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Deleted" representedClassName="Deleted" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Done" representedClassName="Done" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
     <entity name="List" representedClassName=".List" syncable="YES">
         <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -14,5 +24,7 @@
     <elements>
         <element name="List" positionX="-63.5291748046875" positionY="11.65481567382812" width="128" height="103"/>
         <element name="Steps" positionX="-304.9591064453125" positionY="26.19027709960938" width="128" height="88"/>
+        <element name="Deleted" positionX="-180" positionY="54" width="128" height="74"/>
+        <element name="Done" positionX="-171" positionY="63" width="128" height="74"/>
     </elements>
 </model>

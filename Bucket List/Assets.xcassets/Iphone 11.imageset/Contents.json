@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "AddButton.png",
+      "filename" : "Iphone 11.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "AddButton@2x.png",
+      "filename" : "Iphone 11@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "AddButton@3x.png",
+      "filename" : "Iphone 11@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

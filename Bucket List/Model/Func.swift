@@ -8,6 +8,13 @@
 import UIKit
 
 struct Func{
+    
+    enum showData:Int{
+        case list
+        case delete
+        case done
+    }
+    
     func getHourForData(_ date:Date?) -> String{
         guard let inputDate = date else{
             

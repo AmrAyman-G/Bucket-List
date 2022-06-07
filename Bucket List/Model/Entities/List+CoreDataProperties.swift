@@ -2,7 +2,7 @@
 //  List+CoreDataProperties.swift
 //  
 //
-//  Created by amr on 02/06/2022.
+//  Created by amr on 07/06/2022.
 //
 //
 
@@ -16,9 +16,9 @@ extension List {
         return NSFetchRequest<List>(entityName: "List")
     }
 
+    @NSManaged public var color: String?
     @NSManaged public var name: String?
     @NSManaged public var time: Date?
-    @NSManaged public var color: String?
     @NSManaged public var listSteps: NSSet?
 
 }
