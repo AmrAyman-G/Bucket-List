@@ -32,4 +32,11 @@ class ListCell: UITableViewCell {
 
     }
     
+    
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//
+//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50))
+//    }
+    
 }

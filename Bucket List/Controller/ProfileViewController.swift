@@ -10,6 +10,11 @@ import SideMenu
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var SignOutButton: UIButton!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var userFullName: UILabel!
+    @IBOutlet weak var profileStackView: UIStackView!
+    @IBOutlet weak var navButtonStackView: UIStackView!
     @IBOutlet var profileView: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     let sign = SignIn()
@@ -18,36 +23,27 @@ class ProfileViewController: UIViewController {
         profileImage.layer.cornerRadius = 50
         profileImage.layer .cornerCurve = .continuous
         
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: profileImage.frame.width - 85, y: profileImage.frame.height + 220, width: 190, height: 0.4)
-        bottomLine.backgroundColor = UIColor.gray.cgColor
-        profileView.layer.addSublayer(bottomLine)
+//        let bottomLine = CALayer()
+//        bottomLine.frame = CGRect(x: profileStackView.frame.width - 190, y: navButtonStackView.frame.height - 40 , width: 190, height: 0.4)
+//        bottomLine.backgroundColor = UIColor.gray.cgColor
+//        profileView.layer.addSublayer(bottomLine)
 //        profileImage.layer.borderWidth = 5
 //        profileImage.layer.borderColor = UIColor(hexString:"#8236BF")?.cgColor
         // Do any additional setup after loading the view.
     }
-
+   
     @IBAction func SignInUp(_ sender: UIButton) {
-        present(sign.Sign(), animated: true)
+        let regView =  sign.Sign { [weak self] name in
+            self?.userFullName.text = name
+            self?.userFullName.isHidden = false
+            self?.signInButton.isHidden = true
+            self?.SignOutButton.isHidden = false
+        }
+        present(regView, animated: true)
+//        present(sign.Sign(), animated: true)
     }
+    
     
 }
 
-extension ProfileViewController: SideMenuNavigationControllerDelegate {
 
-    func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
-        print("SideMenu Appearing! (animated: \(animated))")
-    }
-
-    func sideMenuDidAppear(menu: SideMenuNavigationController, animated: Bool) {
-        print("SideMenu Appeared! (animated: \(animated))")
-    }
-
-    func sideMenuWillDisappear(menu: SideMenuNavigationController, animated: Bool) {
-        print("SideMenu Disappearing! (animated: \(animated))")
-    }
-
-    func sideMenuDidDisappear(menu: SideMenuNavigationController, animated: Bool) {
-        print("SideMenu Disappeared! (animated: \(animated))")
-    }
-}

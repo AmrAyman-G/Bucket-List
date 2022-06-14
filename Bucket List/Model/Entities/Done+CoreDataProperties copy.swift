@@ -2,7 +2,7 @@
 //  Done+CoreDataProperties.swift
 //  
 //
-//  Created by amr on 07/06/2022.
+//  Created by amr on 12/06/2022.
 //
 //
 
@@ -16,8 +16,9 @@ extension Done {
         return NSFetchRequest<Done>(entityName: "Done")
     }
 
+    @NSManaged public var color: String?
     @NSManaged public var name: String?
     @NSManaged public var time: Date?
-    @NSManaged public var color: String?
+    @NSManaged public var user: Users?
 
 }
