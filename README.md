@@ -5,7 +5,8 @@
 </p>
 
 
-Bucket List is an app for adding things you wanna do, things you never did in your life .
+<h3>Bucket List is an app for adding things you wanna do, things you never did in your life .</h3>
+
 
 ## Screenshots
 
