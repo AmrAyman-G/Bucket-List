@@ -26,7 +26,7 @@
     ##
     ## PROFILE PAGE
     
-   ![App Screenshot](https://github.com/AmrAyman-G/Bucket-List/blob/Edite/App%20Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%202022-07-07%20at%.png)
+   ![App Screenshot](https://github.com/AmrAyman-G/Bucket-List/blob/Edite/App%20Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%202022-07-07%20at%2016.17.29.png)
    ![App Screenshot](https://github.com/AmrAyman-G/Bucket-List/blob/Edite/App%20Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%202022-07-07%20at%2016.17.41.png)
    ![App Screenshot](https://github.com/AmrAyman-G/Bucket-List/blob/Edite/App%20Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%202022-07-07%20at%2016.17.45.png)
    
