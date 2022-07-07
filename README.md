@@ -1,4 +1,7 @@
 # Bucket-List
+<p align="center" width="100%">
+    <img width="33%" src="https://i.stack.imgur.com/RJj4x.png">
+</p>
 ![Logo](https://github.com/AmrAyman-G/Bucket-List/blob/Edite/App%20Screenshots/BucketList.jpg)
 
 Bucket List is an app for adding things you wanna do, things you never did in your life .
