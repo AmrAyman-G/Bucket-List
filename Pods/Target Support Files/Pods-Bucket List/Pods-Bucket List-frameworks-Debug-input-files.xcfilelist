@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-Bucket List/Pods-Bucket List-frameworks.sh
+${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework
+${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework
+${BUILT_PRODUCTS_DIR}/UIView+Shake/UIView_Shake.framework
+${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework
