@@ -23,6 +23,7 @@
 		C5ABE9192848F15500C7EAE9 /* StepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ABE9182848F15500C7EAE9 /* StepsViewController.swift */; };
 		C5ABE9282848F70F00C7EAE9 /* Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ABE9272848F70F00C7EAE9 /* Func.swift */; };
 		C5C4401328D8ED0B008DFF03 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C4401228D8ED0A008DFF03 /* Functions.swift */; };
+		C5C4401A28D8F8A7008DFF03 /* Authentcation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5C4401928D8F8A7008DFF03 /* Authentcation.storyboard */; };
 		C5D4B7E328490934001BEC85 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D4B7E128490934001BEC85 /* ListCell.swift */; };
 		C5D4B7E428490934001BEC85 /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5D4B7E228490934001BEC85 /* ListCell.xib */; };
 		C5D4B7E72849096F001BEC85 /* StepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D4B7E52849096F001BEC85 /* StepCell.swift */; };
@@ -62,6 +63,7 @@
 		C5ABE9182848F15500C7EAE9 /* StepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsViewController.swift; sourceTree = "<group>"; };
 		C5ABE9272848F70F00C7EAE9 /* Func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Func.swift; sourceTree = "<group>"; };
 		C5C4401228D8ED0A008DFF03 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		C5C4401928D8F8A7008DFF03 /* Authentcation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentcation.storyboard; sourceTree = "<group>"; };
 		C5D4B7E128490934001BEC85 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		C5D4B7E228490934001BEC85 /* ListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		C5D4B7E52849096F001BEC85 /* StepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCell.swift; sourceTree = "<group>"; };
@@ -174,10 +176,12 @@
 		C5ABE9152848EB2500C7EAE9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C50DE95B2847D88E00BA6F9F /* LaunchScreen.storyboard */,
-				C50DE9532847D88B00BA6F9F /* Main.storyboard */,
-				C5E0F153284A51E30042DEF0 /* AlertView.storyboard */,
-				C5403D88284FE3E8004B5F45 /* RegistrationView.storyboard */,
+				C5C4401728D8F814008DFF03 /* authentcation */,
+				C5C4401528D8F7D8008DFF03 /* Home */,
+				C5C4401828D8F838008DFF03 /* Profile */,
+				C5ABE91A2848F21500C7EAE9 /* Cells */,
+				C5C4401628D8F7FD008DFF03 /* PopUp */,
+				C5C4401428D8F7BA008DFF03 /* LaunchScreen */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,9 +189,6 @@
 		C5ABE9162848EB2F00C7EAE9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C5DD84B3284EDA2D00108C84 /* ProfileViewController.swift */,
-				C5DD84B4284EDA2E00108C84 /* ProfileViewController.xib */,
-				C5ABE91A2848F21500C7EAE9 /* Cells */,
 				C50DE9512847D88B00BA6F9F /* ListViewController.swift */,
 				C5ABE9182848F15500C7EAE9 /* StepsViewController.swift */,
 				C5E0F151284A4EFB0042DEF0 /* AlertViewController.swift */,
@@ -217,6 +218,48 @@
 				C510E0B4284E63080032E33E /* CollectionViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		C5C4401428D8F7BA008DFF03 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C50DE95B2847D88E00BA6F9F /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		C5C4401528D8F7D8008DFF03 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C50DE9532847D88B00BA6F9F /* Main.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C5C4401628D8F7FD008DFF03 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				C5E0F153284A51E30042DEF0 /* AlertView.storyboard */,
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
+		C5C4401728D8F814008DFF03 /* authentcation */ = {
+			isa = PBXGroup;
+			children = (
+				C5C4401928D8F8A7008DFF03 /* Authentcation.storyboard */,
+				C5403D88284FE3E8004B5F45 /* RegistrationView.storyboard */,
+			);
+			path = authentcation;
+			sourceTree = "<group>";
+		};
+		C5C4401828D8F838008DFF03 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C5DD84B3284EDA2D00108C84 /* ProfileViewController.swift */,
+				C5DD84B4284EDA2E00108C84 /* ProfileViewController.xib */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +328,7 @@
 				C5403D89284FE3E8004B5F45 /* RegistrationView.storyboard in Resources */,
 				C510E0B6284E63080032E33E /* CollectionViewCell.xib in Resources */,
 				C5EBC28B2853C9AF00961E0D /* deletes.json in Resources */,
+				C5C4401A28D8F8A7008DFF03 /* Authentcation.storyboard in Resources */,
 				C5584B3D28525AAC00BE6491 /* Restore.json in Resources */,
 				C5EBC2912853F9DE00961E0D /* uncheck.json in Resources */,
 				C5DD84B6284EDA2E00108C84 /* ProfileViewController.xib in Resources */,
