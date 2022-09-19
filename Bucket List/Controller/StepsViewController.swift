@@ -11,10 +11,13 @@ import ChameleonFramework
 
 class StepsViewController: UIViewController {
 
+    @IBOutlet weak var stepsShadowView: UIView!
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var tabelView: UITableView!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var stepsArray = [Steps]()
+    let  fC = Func()
+    let alert2 = Alert()
     var selectedItem : List? {
         didSet{
             loadsteps()
@@ -35,7 +38,23 @@ class StepsViewController: UIViewController {
     
 
     @IBAction func addStep(_ sender: UIBarButtonItem) {
-        alert(titel: "add step to \(String(describing: selectedItem?.name))", message: nil, perferredStayle: .alert, buttonTitel: "add", actionStayle: .default)
+        fC.shadowViewFunc(state: false, stepsShadowView)
+        let alertView = alert2.alert { [weak self]  text in
+            guard let item = text else {fatalError()}
+            guard let strongSelf = self else {fatalError()}
+            let newInSteps = Steps(context: strongSelf.context)
+            newInSteps.step = item
+            newInSteps.time = Date.now
+            newInSteps.list = strongSelf.selectedItem
+            strongSelf.stepsArray.append(newInSteps)
+            print(strongSelf.stepsArray.count)
+            strongSelf.saveSteps()
+            strongSelf.fC.shadowViewFunc(state: true, strongSelf.stepsShadowView)
+        } cancelation: { [weak self] in
+            guard let strongSelf = self else {fatalError()}
+            strongSelf.fC.shadowViewFunc(state: true, strongSelf.stepsShadowView)
+        }
+        present(alertView, animated: true)
     }
     
 }
@@ -54,6 +73,24 @@ extension StepsViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+    
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        tableView.beginUpdates()
+        context.delete(stepsArray[indexPath.row])
+        stepsArray.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        saveSteps()
+        tableView.endUpdates()
+        
+    }
     
     
 }
@@ -69,7 +106,11 @@ extension StepsViewController {
         let action = UIAlertAction(title: buttonTitel, style: actionStayle) { action in
             let newStep = Steps(context: self.context)
             newStep.step = textField.text
-            newStep.time = Date.now
+            if #available(iOS 15, *) {
+                newStep.time = Date.now
+            } else {
+                // Fallback on earlier versions
+            }
             newStep.list = self.selectedItem
             self.stepsArray.append(newStep)
             self.saveSteps()

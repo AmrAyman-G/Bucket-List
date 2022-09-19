@@ -11,10 +11,11 @@ class CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var collectionLabel: UILabel!
     @IBOutlet weak var ViewNav: UIView!
+    let fC = Func()
     override func awakeFromNib() {
         super.awakeFromNib()
-        ViewNav.layer.cornerRadius = 20
-        ViewNav.layer.cornerCurve = .continuous
+        fC.ViewUi(view: ViewNav)
+        
 //        let bottomLine = CALayer()
 //        bottomLine.frame = CGRect(x: 0.0, y: ViewNav.frame.height - 5, width: ViewNav.frame.width - 50, height: 2.0)
 //        bottomLine.backgroundColor = UIColor.purple.cgColor

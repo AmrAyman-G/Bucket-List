@@ -4,6 +4,7 @@
 ##
 <p align="center" width="100%">
     <img width="33%" src="https://github.com/AmrAyman-G/Bucket-List/blob/develop/App%20Screenshots/Buckit%20List.png">
+
 </p>
 
 <h3>Bucket List is an app for adding things you wanna do, things you never did in your life .</h3>
@@ -23,6 +24,7 @@
  ![App Screenshot](https://github.com/AmrAyman-G/Bucket-List/blob/develop/App%20Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%202022-07-07%20at%2016.16.58.png)
   ![App Screenshot](https://github.com/AmrAyman-G/Bucket-List/blob/develop/App%20Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%202022-07-07%20at%2016.17.08.png)
     ![App Screenshot](https://github.com/AmrAyman-G/Bucket-List/blob/develop/App%20Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%202022-07-07%20at%2016.17.12.png)
+
     
 ##
 
